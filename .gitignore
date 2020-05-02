@@ -1,0 +1,4 @@
+config/database.js
+config/
+.envnode_modules
+npm-debug.log
