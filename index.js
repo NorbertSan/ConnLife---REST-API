@@ -50,7 +50,7 @@ app.put("/user", authenticateToken, updateUserDetails);
 app.put("/user/avatar", authenticateToken, updateUserAvatar);
 
 // POSTS ROUTES
-app.get("/posts", getAllPosts);
+app.get("/posts/:startPosition", getAllPosts);
 app.post("/post", authenticateToken, addPost);
 app.delete("/post/:post_id", authenticateToken, deletePost);
 app.get("/post/:post_id", authenticateToken, getPostDetails);

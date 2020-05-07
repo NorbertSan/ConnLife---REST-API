@@ -1,4 +1,5 @@
 config/database.js
 config/
-.envnode_modules
+.env
+node_modules/
 npm-debug.log

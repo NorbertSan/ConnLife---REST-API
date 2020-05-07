@@ -2,6 +2,8 @@ const db = require("../config/database");
 const { validateAddPost } = require("../utils/validators");
 
 exports.getAllPosts = async (req, res) => {
+  const postsAmount = 5;
+  const startPosition = req.params.startPosition;
   let query = `SELECT
     posts.body,
         posts.commentsCount,
@@ -14,7 +16,8 @@ exports.getAllPosts = async (req, res) => {
     posts
     JOIN
     users ON posts.user_id = users.user_id
-    ORDER BY posts.createdAt DESC`;
+    ORDER BY posts.createdAt DESC
+    LIMIT ${startPosition},${postsAmount}`;
   try {
     const posts = await db.query(query);
     return res.status(200).json(posts);
